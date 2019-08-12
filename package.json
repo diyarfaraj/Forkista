@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deploy": "gh-pages -d build",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
@@ -21,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/diyarfaraj/Forkista/issues"
   },
-  "homepage": "https://github.com/diyarfaraj/Forkista#readme",
+  "homepage": "https://diyarfaraj.github.io/Forkista",
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
