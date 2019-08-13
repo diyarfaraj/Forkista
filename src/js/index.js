@@ -1,6 +1,7 @@
 import Search from "./models/Search";
-import { elements } from "./views/base";
+import { elements, renderLoader, clearLoader } from "./views/base";
 import * as searhcView from "./views/searchView";
+import { basename } from "path";
 // Global state of the app
 // - Search object
 // - current recipe object
@@ -20,10 +21,13 @@ const controllSearch = async () => {
     //3 prepare UI for results
     searhcView.clearInput();
     searhcView.clearResults();
+    renderLoader(elements.searchRes);
+
     //4 Search for recipes
     await state.search.getResults();
 
     //5 render result on UI
+    clearLoader();
     searhcView.renderResult(state.search.result);
   }
 };
