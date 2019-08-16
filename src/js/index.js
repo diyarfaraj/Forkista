@@ -36,3 +36,12 @@ elements.searchForm.addEventListener("submit", e => {
   e.preventDefault();
   controllSearch();
 });
+
+elements.searchResPages.addEventListener("click", e => {
+  const btn = e.target.closest(".btn-inline");
+  if (btn) {
+    const goToPage = parseInt(btn.dataset.goto, 10);
+    searhcView.clearResults();
+    searhcView.renderResult(state.search.result, goToPage);
+  }
+});
