@@ -1,4 +1,5 @@
 import Search from "./models/Search";
+import Recipe from "./models/Recipe";
 import { elements, renderLoader, clearLoader } from "./views/base";
 import * as searhcView from "./views/searchView";
 import { basename } from "path";
@@ -9,6 +10,12 @@ import { basename } from "path";
 //- Liked object
 
 const state = {};
+
+/* 
+
+ -- SEARCH CONTROLLER --- 
+
+*/
 
 const controllSearch = async () => {
   //1. get the query from the view
@@ -45,3 +52,14 @@ elements.searchResPages.addEventListener("click", e => {
     searhcView.renderResult(state.search.result, goToPage);
   }
 });
+
+/* 
+
+ -- RECIPE CONTROLLER --- 
+
+*/
+
+const r = new Recipe(47746);
+r.getRecipe();
+
+console.log(r);

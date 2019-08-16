@@ -1,4 +1,5 @@
 import axios from "axios";
+import { key } from "../config";
 
 export default class Search {
   constructor(query) {
@@ -6,8 +7,6 @@ export default class Search {
   }
 
   async getResults() {
-    const key = "687a5859aeb66b8932974dabdd48036e";
-
     try {
       const res = await axios(
         `https://www.food2fork.com/api/search?key=${key}&q=${this.query}`
