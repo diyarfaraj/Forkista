@@ -38,8 +38,8 @@ const controllSearch = async () => {
       clearLoader();
       searhcView.renderResult(state.search.result);
     } catch (error) {
-      alert("something wrong in the searchControll" + error);
-      clearLoader();
+      alert("something wrong in the search Controll: " + error);
+      //clearLoader();
     }
   }
 };
@@ -66,7 +66,6 @@ elements.searchResPages.addEventListener("click", e => {
 const controlRecipe = async () => {
   //Get the ID from the URL API
   const id = window.location.hash.replace("#", "");
-  //console.log(id);
 
   if (id) {
     //Prepare UI for changes
@@ -75,14 +74,18 @@ const controlRecipe = async () => {
     state.recipe = new Recipe(id);
 
     try {
+      // get recipe data and parse ingredients
       await state.recipe.getRecipe();
+      state.recipe.parseIngredients();
       //calculate servings and time
       state.recipe.calcTime();
       state.recipe.calcServings();
+
       //render recipe
       console.log(state.recipe);
     } catch (error) {
-      alert("Felmeddelande vid processandes av recipe: " + error);
+      console.log(error);
+      alert("Felmeddelande vid processandes av recipe på index.js: " + error);
     }
     //Get recipe data
   }
