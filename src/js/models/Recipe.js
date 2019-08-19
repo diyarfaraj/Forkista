@@ -1,6 +1,7 @@
 import axios from "axios";
 import { key, AppId } from "../config";
 import { compileFunction } from "vm";
+import { type } from "os";
 
 export default class Recipe {
   constructor(id) {
@@ -110,5 +111,17 @@ export default class Recipe {
     });
 
     this.ingredients = newIngredients;
+  }
+
+  // Update the servings
+  updateServings(type) {
+    //servings
+    const newServings = type === "dec" ? this.servings - 1 : this.servings + 1;
+    //Ingredients
+    this.ingredients.forEach(ing => {
+      ing.count *= newServings / this.servings;
+    });
+
+    this.servings = newServings;
   }
 }
