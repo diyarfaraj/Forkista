@@ -98,23 +98,7 @@ export const renderRecipe = recipe => {
   <ul class="recipe__ingredient-list">
 ${recipe.ingredients.map(el => createIngredient(el)).join("")}
 
-      <li class="recipe__item">
-          <svg class="recipe__icon">
-              <use href="img/icons.svg#icon-check"></use>
-          </svg>
-          
-      </li>
-
-      <li class="recipe__item">
-          <svg class="recipe__icon">
-              <use href="img/icons.svg#icon-check"></use>
-          </svg>
-          <div class="recipe__count">1/2</div>
-          <div class="recipe__ingredient">
-              <span class="recipe__unit">cup</span>
-              ricotta cheese
-          </div>
-      </li>
+     
      
 
   <button class="btn-small recipe__btn">
