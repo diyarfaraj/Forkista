@@ -18,7 +18,7 @@ export const highlightSelected = id => {
     el.classList.remove("results__link--active");
   });
   document
-    .querySelector(`a[href="#${id}"]`)
+    .querySelector(`.results__link[href="#${id}"]`)
     .classList.add("results__link--active");
 };
 
@@ -32,7 +32,7 @@ acc: 9 / acc + curr.lenth = 15 / newTitle = ['pasta', 'with', 'tomato']
 !acc: 15 / acc + curr.lenth = 18 / newTitle = ['pasta', 'with', 'tomato']
 !acc: 18 / acc + curr.lenth = 24 / newTitle = ['pasta', 'with', 'tomato']
 */
-const limitRecipeTitle = (title, recipe, limit = 17) => {
+export const limitRecipeTitle = (title, recipe, limit = 17) => {
   const newTitle = [];
   if (title.length > limit) {
     title.split(" ").reduce((acc, cur) => {
