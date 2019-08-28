@@ -4,6 +4,7 @@ import List from "./models/List";
 import { elements, renderLoader, clearLoader } from "./views/base";
 import * as searhcView from "./views/searchView";
 import * as recipeView from "./views/recipeView";
+import * as listView from "./views/listView";
 import { basename } from "path";
 import { stat } from "fs";
 // Global state of the app
@@ -107,6 +108,41 @@ window.addEventListener("load", controlRecipe);
   window.addEventListener(event, controlRecipe)
 );
 
+/* 
+
+ -- LIST CONTROLLER --- 
+
+*/
+
+const controlList = () => {
+  // 1. Create a new list if there is none yet
+  if (!state.list) state.list = new List();
+
+  //2. Add each ingredient to the list and UI
+  state.recipe.ingredients.forEach(el => {
+    const item = state.list.addItem(el.count, el.unit, el.ingredient);
+    listView.renderItem(item);
+  });
+};
+
+// Handle delete button and handle update item events
+elements.shopping.addEventListener("click", e => {
+  const id = e.target.closest(".shopping__item").dataset.itemid;
+
+  // Handle the delete button on the shopping list
+  if (e.target.matches(".shopping__delete, .shopping__delete *")) {
+    // Delete from state
+    state.list.deleteItem(id);
+    // delete from UI
+    listView.deleteItem(id);
+
+    //Handle the count update on the shopping list
+  } else if (e.target.matches(".shopping__count-value")) {
+    const val = parseFloat(e.target.value, 10);
+    state.list.updateCount(id, val);
+  }
+});
+
 // handlings recipe button clicks
 elements.recipe.addEventListener("click", e => {
   if (e.target.matches(".btn-decrease, .btn-decrease *")) {
@@ -119,9 +155,7 @@ elements.recipe.addEventListener("click", e => {
     //increase button is clicked
     state.recipe.updateServings("inc");
     recipeView.updateServingsIngredients(state.recipe);
+  } else if (e.target.matches(".recipe__btn--add, recipe__btn--add *")) {
+    controlList();
   }
 });
-
-const l = new List();
-
-window.l = l;
