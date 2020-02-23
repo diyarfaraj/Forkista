@@ -402,6 +402,10 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+.save-btn span {
+  text-align: left;
+}
 .recipe__title {
   position: absolute;
   bottom: 0;

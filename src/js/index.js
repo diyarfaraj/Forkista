@@ -7,6 +7,7 @@ import * as searhcView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import * as listView from './views/listView';
 import * as likesView from './views/likesView';
+import * as jsPDF from 'jspdf';
 import { basename } from 'path';
 import { stat } from 'fs';
 // Global state of the app
@@ -122,6 +123,12 @@ const controlList = () => {
 	});
 
 	listView.renderBtn();
+	//PRINT
+	state.recipe.ingredients.forEach((el) => {
+		const item = state.list.addItem(el.count, el.unit, el.ingredient);
+		listView.saveListToPdf(item);
+	});
+	listView.saveListToPdf();
 };
 
 // Handle delete button and handle update item events
