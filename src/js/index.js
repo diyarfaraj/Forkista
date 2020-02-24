@@ -123,12 +123,18 @@ const controlList = () => {
 	});
 
 	listView.renderBtn();
+
 	//PRINT
-	state.recipe.ingredients.forEach((el) => {
-		const item = state.list.addItem(el.count, el.unit, el.ingredient);
-		listView.saveListToPdf(item);
+
+	/* state.recipe.ingredients.forEach((el) => {
+		const pdfItem = state.list.addItem(el.count, el.unit, el.ingredient);
+
+		//console.log(pdfItem);
+		const pdfString = JSON.stringify(pdfItem);
+		return pdfString;
 	});
-	listView.saveListToPdf();
+	console.log(pdfString); */
+	//listView.saveListToPdf(pdfItem);
 };
 
 // Handle delete button and handle update item events
