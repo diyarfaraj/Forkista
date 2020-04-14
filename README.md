@@ -7,4 +7,6 @@ Find recipes, adjust servings and add to your shopping list. // Built with JavaS
 
 [![Demo CountPages alpha](https://j.gifs.com/810jkg.gif)](https://www.youtube.com/watch?v=he6nbLaoNs0)
 
+## part 2
 
+[![Demo CountPages alpha](https://j.gifs.com/K1vJ0M.gif)](https://www.youtube.com/watch?v=he6nbLaoNs0)
