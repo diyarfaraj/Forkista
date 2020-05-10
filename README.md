@@ -5,6 +5,8 @@ Find recipes, adjust servings and add to your shopping list. // Built with JavaS
 
 ## App demo
 
+To visit the live demo click [here](https://diyarfaraj.github.io/Forkista)
+
 [![Demo CountPages alpha](https://j.gifs.com/810jkg.gif)](https://www.youtube.com/watch?v=he6nbLaoNs0)
 
 ## part 2
